@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block "title" %}Treppo{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'reset.css' %}">
+        <link rel="stylesheet" href="{% static 'main.css' %}">
+
+        {% block head %}
+        {% endblock head %}
+    </head>
+    <body>
+        {% block header %}
+        <nav class="navbar">
+            <a href="/">Projects</a>
+        </nav>
+        {% endblock %}
+
+        <div class="content">
+            {% block "content" %}
+            {% endblock %}
+        </div>
+
+        <div class="commands">
+            {% if commands %}
+                {% for command in commands %}
+                    <a href="{{ command.url }}">{{ command.title }}</a>
+                {% endfor %}
+            {% else %}
+                No commands available.
+            {% endif %}
+        </div>
+    </body>
+</html>

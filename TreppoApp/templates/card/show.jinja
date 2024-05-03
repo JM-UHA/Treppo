@@ -1,0 +1,16 @@
+{% extends "skeletons/main.jinja" %}
+
+{% block "content" %}
+<h1>{{ project.name }}</h1>
+
+<div class="card" style="padding:30px">
+    <h2>{{ card.title }}</h2>
+    <p>Description : {{ card.description }}</p>
+
+    <p>In category: {{ card.category }}</p>
+
+    <p>Created at: {{ card.created_at }}</p>
+    <p>Last modified at: {{ card.modified_at }}</p>
+</div>
+
+{% endblock %}

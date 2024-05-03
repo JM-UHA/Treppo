@@ -1,0 +1,28 @@
+[project]
+name = "Treppo"
+version = "0.0.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Julien Mauroy", email = "pro.julien.mauroy@gmail.com"},
+]
+dependencies = [
+    "django>=5.0.4",
+]
+requires-python = "~=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+_black = "black Treppo TreppoApp"
+_isort = "isort Treppo TreppoApp"
+dev = {cmd = "python manage.py runserver", help = "Run a Django dev instance."}
+format = {composite = ["_black", "_isort"], help = "Format the codebase. (black, isort, prisma)"}
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=24.4.0",
+    "isort>=5.13.2",
+]

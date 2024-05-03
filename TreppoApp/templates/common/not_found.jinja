@@ -1,0 +1,11 @@
+{% extends "skeletons/main.jinja" %}
+
+{% block "content" %}
+    {% if object and id %}
+        404 - Could not found {{ object }} with ID {{ id }}
+    {% elif object %}
+        404 - Could not found {{ object }}
+    {% else %}
+        404 - Not found
+    {% endif %}
+{% endblock %}

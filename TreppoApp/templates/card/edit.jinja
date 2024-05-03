@@ -1,0 +1,10 @@
+{% extends "skeletons/main.jinja" %}
+
+{% block "content" %}
+<h1>Edit card</h1>
+<form method="post" action="{% url 'card.edit' project_id=project_id category_id=category_id card_id=card.id %}">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="Edit card" />
+</form>
+{% endblock %}

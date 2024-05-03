@@ -1,0 +1,10 @@
+{% extends "skeletons/main.jinja" %}
+
+{% block "content" %}
+<h1>Create category</h1>
+<form method="post" action="{% url 'category.create' project_id=project_id %}">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="Create category" />
+</form>
+{% endblock %}

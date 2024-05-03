@@ -1,0 +1,24 @@
+{% extends "skeletons/main.jinja" %}
+
+{% block "content" %}
+<h1>{{ project.name }}</h1>
+
+<div class="categories">
+    {% for category in project.categories.all %}
+        <div class="category">
+            <h2>{{ category.name }}</h2>
+            <p class="cat-desc">{{ category.description }}</p>
+            <a class="cat-cmd" href="{% url 'category.edit' project_id=project.id category_id=category.id %}">Edit</a>
+            <a class="cat-cmd" href="{% url 'category.delete' project_id=project.id category_id=category.id %}">Delete</a>
+            <a class="cat-cmd" href="{% url 'card.create' project_id=project.id category_id=category.id %}">Add card</a>
+            {% for card in category.cards.all %}
+                <div class="card">
+                    <a href="{{ card.url }}">{{ card.title }}</a>
+                    <p class="card-desc">{{ card.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

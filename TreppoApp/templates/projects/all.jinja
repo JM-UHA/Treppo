@@ -1,0 +1,20 @@
+{% extends "skeletons/main.jinja" %}
+
+{% block "content" %}
+<h1>All Projects</h1>
+
+{% if projects %}
+    
+    <div class="project">
+        <ol>
+            {% for project in projects %}
+                <li><a href="{% url 'project.show' project_id=project.id %}">{{ project.name }}</a></li>
+            {% endfor %}
+        </ol>
+    </div>
+
+{% else %}
+    <p>No projects found.</p>
+{% endif %}
+
+{% endblock %}
